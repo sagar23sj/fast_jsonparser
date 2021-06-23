@@ -18,12 +18,14 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        ruby-version: [2.7, 2.6, 3.0]
+        ruby-version: [ '2.6', '2.7', '3.0' ]
 
     steps:
       - uses: actions/checkout@v2
-    
+        with:
+          submodules: true
       - name: Set up Ruby ${{ matrix.ruby-version }}
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
